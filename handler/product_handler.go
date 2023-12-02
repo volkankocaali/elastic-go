@@ -35,8 +35,8 @@ type Product struct {
 func (h *ProductHandler) HandleGetProducts(w http.ResponseWriter, r *http.Request) {
 	// handle GET products using h.DB
 
-	// insertProductTable(db)
-	// insertProductData(db)
+	// insertProductTable(h.DB)
+	// insertProductData(h.DB)
 
 	// return get all products data
 	products := getProducts(h.DB)
@@ -147,7 +147,7 @@ func insertProductTable(db *sqlx.DB) {
 }
 
 func insertProductData(db *sqlx.DB) {
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 50000; i++ {
 		name := gofakeit.BeerName()
 		category := gofakeit.BeerStyle()
 		price := gofakeit.Price(100, 1000)
